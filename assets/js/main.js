@@ -49,8 +49,11 @@
           $('.mobile-nav-overly').fadeOut();
         }
 
-        ga('set', 'page', location.pathname + location.hash);
-        ga('send', 'pageview');
+        gtag('event', 'page_view', {
+          page_location: location.href,
+          page_path: location.pathname + location.hash,
+          send_to: 'G-NJN5QFTHEB'
+        })
 
         return false;
       }
@@ -69,8 +72,11 @@
         $(initial_nav).addClass('section-show');
       }, 350);
       
-      ga('set', 'page', location.pathname + location.hash);
-      ga('send', 'pageview');
+      gtag('event', 'page_view', {
+        page_location: location.href,
+        page_path: location.pathname + location.hash,
+        send_to: 'G-NJN5QFTHEB'
+      })
     }
   }
 
