@@ -7,6 +7,11 @@
 !(function($) {
   "use strict";
 
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   // Nav Menu
   $(document).on('click', '.nav-menu a, .mobile-nav a', function(e) {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -49,11 +54,14 @@
           $('.mobile-nav-overly').fadeOut();
         }
 
+        let pageTitle = capitalizeFirstLetter(location.hash.replace('#', ''));
+      
         gtag('event', 'page_view', {
+          page_title: pageTitle,
           page_location: location.href,
           page_path: location.pathname + location.hash,
           send_to: 'G-NJN5QFTHEB'
-        })
+        });
 
         return false;
       }
@@ -71,12 +79,15 @@
         $("section").removeClass('section-show');
         $(initial_nav).addClass('section-show');
       }, 350);
+
+      let pageTitle = capitalizeFirstLetter(initial_nav.replace('#', ''));
       
       gtag('event', 'page_view', {
+        page_title: pageTitle,
         page_location: location.href,
         page_path: location.pathname + location.hash,
         send_to: 'G-NJN5QFTHEB'
-      })
+      });
     }
   }
 
