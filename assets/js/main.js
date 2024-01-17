@@ -48,6 +48,10 @@
           $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
           $('.mobile-nav-overly').fadeOut();
         }
+
+        ga('set', 'page', location.pathname + location.hash);
+        ga('send', 'pageview');
+
         return false;
       }
     }
@@ -64,6 +68,9 @@
         $("section").removeClass('section-show');
         $(initial_nav).addClass('section-show');
       }, 350);
+      
+      ga('set', 'page', location.pathname + location.hash);
+      ga('send', 'pageview');
     }
   }
 
