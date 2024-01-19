@@ -55,8 +55,6 @@
         }
 
         let pageTitle = capitalizeFirstLetter(location.hash.replace('#', ''));
-
-        document.title = pageTitle;
       
         gtag('event', 'page_view', {
           page_title: pageTitle,
@@ -83,8 +81,6 @@
       }, 350);
 
       let pageTitle = capitalizeFirstLetter(initial_nav.replace('#', ''));
-
-      document.title = pageTitle;
       
       gtag('event', 'page_view', {
         page_title: pageTitle,
